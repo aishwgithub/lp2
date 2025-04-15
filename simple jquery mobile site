@@ -16,3 +16,97 @@
 
 </body> 
 </html>
+
+
+
+another:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile UI with jQuery Mobile</title>
+
+  <!-- jQuery Mobile CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+  <!-- jQuery and jQuery Mobile JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- Page Wrapper -->
+<div data-role="page" id="home">
+
+  <!-- Header -->
+  <div data-role="header">
+    <h1>Welcome</h1>
+  </div>
+
+  <!-- Content -->
+  <div data-role="content">
+    <p>Hello, this is a simple mobile website!</p>
+
+    <!-- Button -->
+    <a href="#formPage" data-role="button" data-icon="arrow-r">Go to Registration Form</a>
+
+    <!-- Collapsible Section -->
+    <div data-role="collapsible">
+      <h4>About Us</h4>
+      <p>This is a sample mobile website using jQuery Mobile components.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div data-role="tabs">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#one" data-ajax="false">Tab One</a></li>
+          <li><a href="#two" data-ajax="false">Tab Two</a></li>
+        </ul>
+      </div>
+      <div id="one">
+        <p>This is content for tab one.</p>
+      </div>
+      <div id="two">
+        <p>This is content for tab two.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer">
+    <h4>Mobile Site Footer</h4>
+  </div>
+
+</div>
+
+<!-- Second Page with Form -->
+<div data-role="page" id="formPage">
+
+  <div data-role="header">
+    <h1>Register</h1>
+  </div>
+
+  <div data-role="content">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" />
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" />
+
+      <input type="submit" value="Register" data-icon="check" data-theme="b" />
+    </form>
+
+    <a href="#home" data-role="button" data-icon="home">Back to Home</a>
+  </div>
+
+</div>
+
+</body>
+</html>
