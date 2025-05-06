@@ -1,0 +1,91 @@
+import heapq
+
+def is_safe(board, row, col):
+    for prev_row in range(row):
+        if board[prev_row] == col or \
+           board[prev_row] - prev_row == col - row or \
+           board[prev_row] + prev_row == col + row:
+            return False
+    return True
+
+def n_queens_astar(n):
+    initial_state = []
+    priority_queue = [(0, initial_state)]
+    
+    while priority_queue:
+        _, current_board = heapq.heappop(priority_queue)
+        row = len(current_board)
+
+        if row == n:
+            return current_board
+
+        for col in range(n):
+            if is_safe(current_board, row, col):
+                next_board = current_board + [col]
+                heuristic = n - (row + 1)
+                priority = row + 1 + heuristic
+                heapq.heappush(priority_queue, (priority, next_board))
+
+    return None
+
+if __name__ == "__main__":
+    n = 8
+    solution = n_queens_astar(n)
+    if solution:
+        print("Solution found:")
+        for row, col in enumerate(solution):
+            print(f"Queen at ({row}, {col})")
+    else:
+        print("No solution found.")
+
+
+
+
+
+another:
+
+
+import heapq
+
+def calculateAttck(state):
+    n=len(state)
+    attack=0
+    for i in range(n):
+        for j in range(i+1,n):
+            if(state[i]==state[j] or abs(state[i]-state[j])==abs(i-j)):
+                attack+=1
+    return attack
+
+def nearest_neighbor(state):
+    neighbors=[]
+    n=len(state)
+    for i in range(n):
+        for j in range(n):
+            if state[i]!=j:
+                neighbor=list(state)
+                neighbor[i]=j
+                neighbors.append(neighbor)
+    return neighbors
+
+def NQueen(n):
+    start=tuple(range(n))
+    heap=[(calculateAttck(start),start)]
+    visited=set()
+    
+    while heapq:
+        cost,state=heapq.heappop(heap)
+        
+        if calculateAttck(state)==0:
+            return state
+        visited.add(state)
+        
+        for neighbor in nearest_neighbor(state):
+            neighbor=tuple(neighbor)
+            if neighbor not in visited:
+                heapq.heappush(heap,(calculateAttck(neighbor),neighbor))
+    return None
+    
+
+n=4
+ans=NQueen(n)
+print(ans)
