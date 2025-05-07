@@ -1,77 +1,36 @@
-index.html 
+//create folder
+//open terminal and type command
+//npm install
+//npm init (start node)
+//ctrate index.js file
 
-<!DOCTYPE html> 
-<html> 
-<head> 
-<title>Static Site</title> 
-<link rel="stylesheet" href="style.css"> 
-</head> 
-<body> 
-<h1>Welcome to My Static Website!</h1> 
-<script src="script.js"></script> 
-</body> 
-</html> 
+index.js
 
-Style.css:
+const express=require('express')
+const app=express()
+app.use(express.static('public'));
+app.listen(4000,()=>{
+    console.log('successfully!!');
+})
 
-body { 
-font-family: Arial; 
-background: #f2f2f2; 
-text-align: center; 
-margin-top: 50px; 
-} 
+//create folder inside above folder name as public 
+//create file index.html in public folder
+//npm install express --save
 
-Script.js:
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node server
+    </title>
+</head>
+<body>
+    <h1>static website</h1>
+</body>
+</html>
 
-console.log("Static site loaded!"); 
-server.js: 
-const express = require('express'); 
-const path = require('path'); 
-const app = express(); 
-const PORT = 3000; 
-// Serve static files from "public" directory 
-app.use(express.static(path.join(__dirname, 'public'))); 
-// Start server 
-app.listen(PORT, () => { 
-console.log(`Server is running at http://localhost:${PORT}`); 
-});
+//node index.js
 
-
-
-anoher:
-
-Let fetchBtn document.getElementById('fetchBtn');
-
-fetchBtn.addEventListener('click', buttonClickHandler)
-
-function buttonClickHandler() {
-
-console.log('You have clicked the fetchBtn');
-
-// Instantiate an xhr object
-
-const xhr = new XMLHttpRequest();
-
-// Open the object
-
-xhr.open('GET', 'harry.txt', true);
-
-// What to do on progress (optional)
-
-xhr.onprogress = function(){
-
-console.log('on progress');
-
-}
-
-// What to do when response is ready
-
-xhr.onload function () {
-
-console.log(this.responseText)
-
-}
-
-// send the request
-
-xhr.send();
+//go to chrome and localhost:3000
